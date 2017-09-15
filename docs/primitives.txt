@@ -1,0 +1,99 @@
+Stack operations
+----------------
+
+DEPTH ( -- +n )
+	Returns stack depth
+DROP ( x -- )
+	Drops an element off the top of the stack
+PICK ( xu ... x1 x0 u -- xu ... x1 x0 xu )
+	Copy element u deep and push on stack
+ROLL ( xu xu-1 ... x0 u -- xu-1 ... x0 xu )
+	Move element u deep and put on top of the the stack,
+>R ( x -- ) ( R: -- x )
+	Pop element off data stack and push on return stack
+R> ( -- x ) ( R: x -- )
+	Pop element off return stack and push on data stack
+R@ ( -- x ) (R: x -- )
+	Copy element on return stack onto the data stack
+EXIT ( -- ) ( R: nest-sys -- )
+	Run next instruction
+
+Reading and writing dataspace
+-----------------------------
+
+! ( x a-addr -- )
+	Write value x to address a-addr.
+@ ( a-addr -- x )
+	Fetch value at address a-addr and push on stack
+COUNT ( c-addr1 -- c-addr2 u )
+		
+Access and minipulate data space pointer
+----------------------------------------
+	
+ALIGN ( -- )
+ALIGNED ( addr -- a-addr )
+HERE ( -- addr )
+ALLOT ( n -- )
+CELLS ( n1 -- n2 )
+UNUSED ( -- u )
+
+Memory block words (optional)
+-----------------------------
+
+CMOVE ( c-addr1 c-addr2 u -- )
+FILL ( c-addr u char -- )
+COMPARE ( c-addr1 u1 c-addr2 u2 -- n )
+
+I/O primitives
+--------------
+
+KEY ( -- char )
+	Push 1 char from stdin
+EMIT ( x -- )
+	Print 1 char to stdout
+TYPE ( c-addr u -- )
+	Print a string of length u at address
+CR ( -- )
+	Print new line
+. ( n -- )
+	Pop stack and print as signed number
+U. ( n -- )
+	Pop stack and print as unsigned number
+SOURCE ( -- c-addr u )
+	Push address of machine buffer
+>IN ( -- a-addre )
+	Push address of the offset into buffer.
+REFILL ( -- flag )
+	Reads a line from the
+ACCEPT ( c-addr +n1 -- +n2 )
+WORD ( char "<chars>ccc<char>" -- c-addr )
+PARSE ( char "ccc<char>" -- c-addr u )
+BL ( -- char )
+AND ( x1 x2 -- x3 )
+OR ( x1 x2 -- x3 )
+XOR ( x1 x2 -- x3 )
+LSHIFT ( x1 u -- x2 )
+RSHIFT ( x1 u -- x2 )
+ARG ( n -- c-addr u )
+BYE ( -- )
+SYSTEM ( c-addr u -- )
+MS ( u -- )
+
+STATE ( -- a-addr )
+	Returns the pointer to boolean is system compiling.
+CREATE ( "<spaces>name" -- )  Execution: ( -- a-addr )
+	
+IMMEDIATE ( -- )
+HIDDEN ( -- )
+FIND ( c-addr -- c-addr 0  |  xt 1  |  xt -1 )
+EXECUTE ( i*x xt -- j*x )
+WORDS ( -- )
+SEE ( "<spaces>name" -- )
+INTERPRET ( i*x -- j*x )
+EVALUATE ( i*x c-addr u -- j*x )
+PROMPT ( -- )
+QUIT ( -- )
+BIN ( fam1 -- fam2 )
+ALLOCATE ( u -- a-addr ior )
+RESIZE ( a-addr1 u -- a-addr2 ior )
+FREE ( a-addr -- ior )
