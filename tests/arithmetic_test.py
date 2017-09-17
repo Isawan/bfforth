@@ -1,11 +1,7 @@
 #!/usr/bin/env python3
-import functools 
-import numpy
 import tempfile
 import subprocess
-import sys
 import unittest
-import time
 
 """
 This function generates a header to initilise the stack
