@@ -19,7 +19,7 @@ for i in y:
                '>+>',''.join(['+']*(j%2**8)),'<<<'])
 
         with tempfile.NamedTemporaryFile(mode='w',delete=True) as f:
-            f.write(''.join((header,'\n',add_file,'<.>>.<')))
+            f.write(''.join((header,'\n',add_file,'>.>>.')))
             f.flush()
             result = subprocess.run(['bf',f.name],
                     stdout=subprocess.PIPE,
@@ -28,6 +28,8 @@ for i in y:
         expect = ((i//2**8)*2**8 + (i%2**8) + (j//2**8)*2**8 + (j%2**8))%2**16
         if(expect != output):
             print(' i : {} j : {} '.format(i,j))
+            print(' expect : {} '.format(expect))
+            print(' output : {} '.format(output))
             sys.exit(1)
     print(i)
 

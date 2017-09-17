@@ -5,7 +5,7 @@ The memory layout is to start in this form
 We would like to implement a push add on the stack leaving
  0x00   0x01   0x02   0x03   0x04   0x05
 (0x01) (0x1L) (0x01) (0x2L) (0x00) (0x00) 
-               ^
+ ^
 Here we will add the two 16 bit big endian numbers L = N plus M
 
 Begin by positioning over 0x05
@@ -35,7 +35,7 @@ If 0x03 is zero we increment 0x01 by one ie carry add
   >->]<<
   >>>>
 ]
-<<<<<
+<<<<<<<
 
 
 
