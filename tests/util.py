@@ -22,13 +22,19 @@ def create_header(stack):
 """
 This is a function to test arithmetic brainfuck operations
 """
-def run_operation(file_content,stack):
+def run_operation(file_content,stack='',stdin=None,
+        stdout=None,footer='>.>>.'):
 
     header = create_header(stack)
     with tempfile.NamedTemporaryFile(mode='w',delete=True) as f:
-        f.write(''.join((header,'\n',file_content,'>.>>.')))
+        f.write(''.join((header,'\n',file_content,footer)))
         f.flush()
         result = subprocess.run(['bf','-c{}'.format(TAPESIZE-1),f.name],
+                input=stdin,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE)
-        return int.from_bytes(result.stdout,'big')
+        if stdout:
+            return stdout(result.stdout)
+        else:
+            return int.from_bytes(result.stdout,'big')
+

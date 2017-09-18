@@ -30,5 +30,6 @@ class TestPick(unittest.TestCase):
         output = run_operation(self.file_content,stack)
         self.assertEqual(output,1000)
 
+
 if __name__ == '__main__':
     unittest.main()
