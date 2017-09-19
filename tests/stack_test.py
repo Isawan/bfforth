@@ -4,7 +4,7 @@ from tests.util import create_header,run_operation
 
 class TestDrop(unittest.TestCase):
     def setUp(self):
-        with open('stack/drop.bf') as f:
+        with open('opcode/stack/drop.bf') as f:
             self.file_content = f.read()
 
     def test_drop(self):
@@ -13,7 +13,7 @@ class TestDrop(unittest.TestCase):
 
 class TestPick(unittest.TestCase):
     def setUp(self):
-        with open('stack/pick.bf') as f:
+        with open('opcode/stack/pick.bf') as f:
             self.file_content = f.read()
 
     def test_simple_pick(self):

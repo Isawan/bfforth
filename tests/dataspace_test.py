@@ -4,7 +4,7 @@ from tests.util import create_header,run_operation
 
 class TestCells(unittest.TestCase):
     def setUp(self):
-        with open('dataspace/cells.bf') as f:
+        with open('opcode/dataspace/cells.bf') as f:
             self.file_content = f.read()
 
     def test_correct_value(self):

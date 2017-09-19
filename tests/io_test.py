@@ -4,7 +4,7 @@ from tests.util import create_header,run_operation
 
 class TestBL(unittest.TestCase):
     def setUp(self):
-        with open('io/bl.bf') as f:
+        with open('opcode/io/bl.bf') as f:
             self.file_content = f.read()
 
     def test_space_pushed(self):
@@ -13,7 +13,7 @@ class TestBL(unittest.TestCase):
 
 class TestEmit(unittest.TestCase):
     def setUp(self):
-        with open('io/emit.bf') as f:
+        with open('opcode/io/emit.bf') as f:
             self.file_content = f.read()
 
     def test_simple_emit(self):

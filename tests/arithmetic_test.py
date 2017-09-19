@@ -4,7 +4,7 @@ from tests.util import create_header,run_operation
 
 class TestAddition(unittest.TestCase):
     def setUp(self):
-        with open('arithmetic/add.bf') as f:
+        with open('opcode/arithmetic/add.bf') as f:
             self.file_content = f.read()
 
     def test_simple_subtract(self):
@@ -25,7 +25,7 @@ class TestAddition(unittest.TestCase):
 
 class TestSubtraction(unittest.TestCase):
     def setUp(self):
-        with open('arithmetic/sub.bf') as f:
+        with open('opcode/arithmetic/sub.bf') as f:
             self.file_content = f.read()
 
     def test_simple_subtract(self):
@@ -43,7 +43,7 @@ class TestSubtraction(unittest.TestCase):
 
 class TestMultiplication(unittest.TestCase):
     def setUp(self):
-        with open('arithmetic/mul.bf') as f:
+        with open('opcode/arithmetic/mul.bf') as f:
             self.file_content = f.read()
 
     def test_simple_multiply(self):
