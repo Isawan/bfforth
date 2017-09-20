@@ -31,8 +31,7 @@ def run_operation(file_content,stack='',stdin=None,
         f.flush()
         result = subprocess.run(['bf','-c{}'.format(TAPESIZE-1),f.name],
                 input=stdin,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE)
+                stdout=subprocess.PIPE )
         if stdout:
             return stdout(result.stdout)
         else:
