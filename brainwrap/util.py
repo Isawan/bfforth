@@ -34,7 +34,7 @@ def run_arithmetic(file_content,stack=[],footer='>.>>.'):
     assert(footer.count('[') + footer.count(']') == 0)
 
     makestack = create_stack(stack)
-    instruction = ''.join([makestack,file_content,footer])
+    instruction = '\n'.join([makestack,file_content,footer])
 
     with BrainfuckMachine(instruction) as bfm:
         output = bfm.stdout.read(footer.count('.'))
@@ -48,6 +48,6 @@ Returns a data stream of outputs
 def run_dataspace(file_content,tape=[0],init_cursor=0,footer='.'):
     assert(init_cursor >= 0)
     maketape = init_state(tape,init_cursor)
-    instruction = ''.join([maketape,file_content,footer])
+    instruction = '\n'.join([maketape,file_content,footer])
     with BrainfuckMachine(instruction,tapesize=700000) as bfm:
         return bfm.stdout.read()

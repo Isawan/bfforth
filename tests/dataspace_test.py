@@ -30,6 +30,31 @@ class TestBridge(unittest.TestCase):
         output = run_dataspace(self.file_content, tape, 2, foot)
         self.assertEqual(list(output),exp)
 
+class TestStore(unittest.TestCase):
+    def setUp(self):
+        with open('opcode/dataspace/store.bf') as f:
+            self.file_content = f.read()
+
+    def test_store_first(self):
+        tape = [10, 0, 0, 5, 0, 0]
+        exp  = [  0, 0, 0,  0, 0, 0] + [1,0]*5 + [0, 10, 0, 0]
+        foot = ''.join(['<<']+['.>']*2*(3+ 5 + 2))
+        output = run_dataspace(self.file_content, tape, 2, foot)
+        self.assertEqual(list(output),exp)
+
+    def test_store_second(self):
+        tape = [  0, 10, 0, 5, 0, 0]
+        exp  = [  0, 0, 0,  0, 0, 0] + [1,0]*5 + [0, 0, 0, 10]
+        foot = ''.join(['<<']+['.>']*2*(3+ 5 + 2))
+        output = run_dataspace(self.file_content, tape, 2, foot)
+        self.assertEqual(list(output),exp)
+
+    def test_store_all(self):
+        tape = [10, 10, 0, 5, 0, 0]
+        exp  = [  0, 0, 0,  0, 0, 0] + [1,0]*5 + [0, 10, 0, 10]
+        foot = ''.join(['<<']+['.>']*2*(3+ 5 + 2))
+        output = run_dataspace(self.file_content, tape, 2, foot)
+        self.assertEqual(list(output),exp)
 
 if __name__ == '__main__':
     unittest.main()
