@@ -56,5 +56,31 @@ class TestStore(unittest.TestCase):
         output = run_dataspace(self.file_content, tape, 2, foot)
         self.assertEqual(list(output),exp)
 
+class TestFetch(unittest.TestCase):
+    def setUp(self):
+        with open('opcode/dataspace/fetch.bf') as f:
+            self.file_content = f.read()
+
+    def test_fetch_first(self):
+        tape = [0,  0,  0,  5,  0,  0] + [0,0]*5 + [0,0,0,10]
+        exp  = [0,10,  0,  0,  0,  0] + [1,0]*5 + [0,0,0,10]
+        foot = ''.join(['<<']+['.>']*2*(3+5+2))
+        output = run_dataspace(self.file_content, tape, 2, foot)
+        self.assertEqual(list(output),exp)
+
+    def test_fetch_second(self):
+        tape = [0,  0,  0,  5,  0,  0] + [0,0]*5 + [0,10,0,0]
+        exp  = [10,0,  0,  0,  0,  0] + [1,0]*5 + [0,10,0,0]
+        foot = ''.join(['<<']+['.>']*2*(3+5+2))
+        output = run_dataspace(self.file_content, tape, 2, foot)
+        self.assertEqual(list(output),exp)
+    
+    def test_fetch_all(self):
+        tape = [0  ,  0,  0,  5,  0,  0] + [0,0]*5 + [0,10,0,10]
+        exp  = [10,10,  0,  0,  0,  0] + [1,0]*5 + [0,10,0,10]
+        foot = ''.join(['<<']+['.>']*2*(3+5+2))
+        output = run_dataspace(self.file_content, tape, 2, foot)
+        self.assertEqual(list(output),exp)
+
 if __name__ == '__main__':
     unittest.main()
