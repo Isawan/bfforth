@@ -1,4 +1,6 @@
 #include "opcode/dataspace/bridge.bf"
+zero out the receiver cells
+<[-]<[-]>>
 move to first character
 >>>>[>>]>
 
