@@ -1,0 +1,3 @@
+[submodule "bfc"]
+	path = bfc
+	url = git@github.com:Wilfred/bfc
