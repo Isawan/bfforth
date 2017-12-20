@@ -5,7 +5,7 @@ import brainwrap.preprocessor as preprocessor
 class BrainfuckMachine:
     def __init__(self,bfcode,tapesize=30000):
         self.code = preprocessor.run(bfcode)
-        self.process = Popen(['bff4'], stdin=PIPE, stdout=PIPE)
+        self.process = Popen(['bff4/bff4'], stdin=PIPE, stdout=PIPE)
         self.process.stdin.write(bytes(self.code+'!','ascii'))
         self.process.stdin.flush()
 

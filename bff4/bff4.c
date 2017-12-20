@@ -81,8 +81,8 @@ int consume(op *o)
 	  o->db = zalloci(o->db,o->dbsz+1,o->dbsz);
 	  o->db[o->dbsz++] = a;
 
-	  if( a=='+' ) o->d[mp]++;
-	  if( a=='-' ) o->d[mp]--;
+	  if( a=='+' ) o->d[mp] = (o->d[mp]+1)%255;
+	  if( a=='-' ) o->d[mp] = (o->d[mp]-1)%255;
 	  if( a=='>' )
 	  {
 		mp++;
