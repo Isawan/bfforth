@@ -41,7 +41,7 @@ start a loop
   >[->>>>+<<<<]                  move 0x11 to 0x15
   >>>>+                          increment 0x15
   now leave a trail of 1s to follow back
-  <<<<+<<+>>>>>                  set 0x10 0x12 to 1
+  <<<+<<+>>>>>                  set 0x10 0x12 to 1
   >
 ]
 remove original decode char
