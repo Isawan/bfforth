@@ -48,3 +48,5 @@ remove original decode char
 <<<<[<<]>>>>>[-]<[>>]
 copy back
 < [-<<<[<<]>>>>>+<[>>]<]
+clean up
+<[-]<<[-<<]>>+>>+<<
