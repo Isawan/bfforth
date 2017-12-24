@@ -17,3 +17,5 @@ next check equality between 0x03 and 0x07
 check equality between 0x01 and 0x03
 <<<<
 [-<<->>]+<<[>>-<<[-]]
+cleanup
+>>>[-]>>[-]<<<<<<
