@@ -30,4 +30,5 @@ class BrainfuckMachine:
     def stop(self):
         self.stdin.close()
         self.stdout.close()
+        self.process.wait()
 
