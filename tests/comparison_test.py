@@ -25,7 +25,24 @@ class TestEquals(unittest.TestCase):
 
     def test_zero_not_equals_five(self):
         output = run_arithmetic(self.file_content,[0,5])
-        self.assertEquals(output,0)
+        self.assertEqual(output,0)
+
+    def test_512_equals_512(self):
+        output = run_arithmetic(self.file_content,[512,512])
+        self.assertEqual(output,1)
+
+    def test_512_not_equal_2048(self):
+        output = run_arithmetic(self.file_content,[512,2048])
+        self.assertEqual(output,0)
+
+    def test_3453_equals_3453(self):
+        output = run_arithmetic(self.file_content,[3453,3453])
+        self.assertEqual(output,1)
+    
+    def test_3453_not_equals_5321(self):
+        output = run_arithmetic(self.file_content,[3453,5321])
+        self.assertEqual(output,0)
+
 
 
 if __name__ == '__main__':

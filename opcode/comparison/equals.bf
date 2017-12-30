@@ -13,9 +13,12 @@ we start by checking equality between 0x01 and 0x05
 [->>>>-<<<<]+>>>>[<<<<->>>>[-]]
 next check equality between 0x03 and 0x07
 <<                                     goto 0x03
-[->>>>-<<<<]+>>>>[<<<<->>>>[-]]
-check equality between 0x01 and 0x03
-<<<<
-[-<<->>]+<<[>>-<<[-]]
-cleanup
->>>[-]>>[-]<<<<<<
+[->>>>-<<<<]+>>>>[<<<<->>>>[-]]        end  0x07 
+clean up the one trails
+<[-]<<[-]<                             end  0x03
+
+apply 0x01 AND 0x03
+make 0x03 negative
+[
+  [-]<<[>>+<<[-]]
+][-]<
