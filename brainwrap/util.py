@@ -2,11 +2,11 @@
 from brainwrap.machine import BrainfuckMachine
 TAPESIZE=30000
 
-"""
-This function generates a header to initilise the stack
-and position cursor at the top cell
-"""
 def create_stack(stack):
+    """
+    This function generates a header to initilise the stack
+    and position cursor at the top cell
+    """
     prehead = map(lambda x: ''.join([
         ''.join(['+']*(x//2**8)),
         '>+>',
@@ -24,13 +24,13 @@ def init_state(tape, start_index):
     return mem+position
 
 
-"""
-This is a function to test arithmetic brainfuck operations.
-It produces a stack and positions the cursor at the top
-Returns integer at the top of the stack.
-Do not use loops in the footer, it messes with the expected outputed bytes.
-"""
 def run_arithmetic(file_content,stack=[],footer='>.>>.'):
+    """
+    This is a function to test arithmetic brainfuck operations.
+    It produces a stack and positions the cursor at the top
+    Returns integer at the top of the stack.
+    Do not use loops in the footer, it messes with the expected outputed bytes.
+    """
     assert(footer.count('[') + footer.count(']') == 0)
 
     makestack = create_stack(stack)
@@ -41,11 +41,11 @@ def run_arithmetic(file_content,stack=[],footer='>.>>.'):
 
     return int.from_bytes(output,'big')
 
-"""
-This is a function to test dataspace operations.
-Returns a data stream of outputs
-"""
 def run_dataspace(file_content,tape=[0],init_cursor=0,footer='.'):
+    """
+    This is a function to test dataspace operations.
+    Returns a data stream of outputs
+    """
     assert(init_cursor >= 0)
     maketape = init_state(tape,init_cursor)
     instruction = '\n'.join([maketape,file_content,footer])

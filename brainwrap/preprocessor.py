@@ -1,11 +1,12 @@
 import re
 import subprocess
 import sys
-"""
-This function runs the code through gcc's preprocessor followed by
-stripping all non bf characters
-"""
+
 def run(bfcode):
+    """
+    This function runs the code through gcc's preprocessor followed by
+    stripping all non bf characters
+    """
     # First run through gcc preprocessor
     preproc = subprocess.run(['cpp'],
             input=bytes(bfcode,'utf-8'),
