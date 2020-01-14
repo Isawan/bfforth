@@ -4,10 +4,10 @@ import subprocess
 
 TAPESIZE=30000
 
-"""
-This function generates a header to initilise the stack
-"""
 def create_header(stack):
+    """
+    This function generates a header to initilise the stack
+    """
     prehead = map(lambda x: ''.join([
         ''.join(['+']*(x//2**8)),
         '>+>',
@@ -19,11 +19,11 @@ def create_header(stack):
     return head
 
 
-"""
-This is a function to test arithmetic brainfuck operations
-"""
 def run_operation(file_content,stack='',stdin=None,
         stdout=None,footer='>.>>.'):
+    """
+    This is a function to test arithmetic brainfuck operations
+    """
 
     header = create_header(stack)
     with tempfile.NamedTemporaryFile(mode='w',delete=True) as f:
