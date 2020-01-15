@@ -1,5 +1,5 @@
 Stack operations
-----------------
+================
 
 DEPTH ( -- +n )
 	Returns stack depth
@@ -19,7 +19,7 @@ EXIT ( -- ) ( R: nest-sys -- )
 	Run next instruction
 
 Reading and writing dataspace
------------------------------
+=============================
 
 ! ( x a-addr -- )
 	Write value x to address a-addr.
@@ -28,7 +28,7 @@ Reading and writing dataspace
 COUNT ( c-addr1 -- c-addr2 u )
 		
 Access and minipulate data space pointer
-----------------------------------------
+========================================
 	
 ALIGN ( -- )
 ALIGNED ( addr -- a-addr )
@@ -38,14 +38,14 @@ CELLS ( n1 -- n2 )
 UNUSED ( -- u )
 
 Memory block words (optional)
------------------------------
+=============================
 
 CMOVE ( c-addr1 c-addr2 u -- )
 FILL ( c-addr u char -- )
 COMPARE ( c-addr1 u1 c-addr2 u2 -- n )
 
 I/O primitives
---------------
+==============
 
 KEY ( -- char )
 	Push 1 char from stdin
