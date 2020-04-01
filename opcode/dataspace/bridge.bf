@@ -5,8 +5,8 @@ The memory layout is to start in this form
 The goal is to store the values at $N1 $N2 at an index defined by $M
 
 The strategy to be used here is to first use up the "remainder" in $M1
-Then we use unrolling to efficiently use $M0. When compiled by an
-optimizing compiler, the unroll will be optimized into a single move.
+Then we use unrolling to efficiently use $M0 When compiled by an
+optimizing compiler the unroll will be optimized into a single move
 
 First use up the values at 0x03
 >
