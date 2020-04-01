@@ -1,0 +1,5 @@
+FROM docker.io/ubuntu:bionic
+RUN apt-get update \
+    && apt-get -y install bf python3 cpp\
+    && rm -rf /var/lib/apt/list/*
+WORKDIR /mnt

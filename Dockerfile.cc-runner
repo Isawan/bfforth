@@ -1,0 +1,6 @@
+FROM docker.io/ubuntu:bionic
+RUN apt-get update \
+    && apt-get -y install gcc \
+    && rm -rf /var/lib/apt/list/* /var/log/*
+WORKDIR /mnt
+ENTRYPOINT ["gcc"]
